@@ -6,3 +6,6 @@ __pycache__/
 venv/
 .env
 executed_*.ipynb
+
+# Dataset is downloaded by scripts/download_data.py
+data/StudentPerformanceFactors.csv
