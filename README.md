@@ -156,7 +156,29 @@ và dùng:
 
 để giải thích lựa chọn cuối cùng.
 
-### 5. Cluster ID không phải ý nghĩa
+### 4.1. Khởi tạo K-Means
+
+Trong các phần dùng scikit-learn, lab sử dụng:
+
+```python
+KMeans(..., random_state=42, n_init=10)
+```
+
+`n_init=10` giúp giảm phụ thuộc vào một lần khởi tạo centroid duy nhất và làm kết quả ổn định hơn cho mục đích thực hành.
+
+### 5. K-Means luôn trả về K cụm
+
+K-Means sẽ tạo ra đúng K cluster ngay cả khi dữ liệu **không có cấu trúc cụm tự nhiên rõ ràng**.
+
+Vì vậy, sau Elbow và Silhouette, bạn phải đánh giá thêm:
+
+- các Silhouette Score có đủ cao để cho thấy sự tách biệt hay không;
+- các kết quả có ổn định và có thể diễn giải hay không;
+- có nên coi cluster là phân khúc thật hay chỉ là **exploratory partition**.
+
+Nếu cấu trúc cụm yếu, không được dùng cluster để đưa ra quyết định hỗ trợ sinh viên.
+
+### 6. Cluster ID không phải ý nghĩa
 
 K-Means trả về:
 
@@ -170,7 +192,7 @@ Cluster 2
 Không được tự động hiểu các số này là “tốt”, “yếu”, “nguy cơ”.  
 Tên mô tả chỉ được đặt **sau cluster profiling**.
 
-### 6. Mỗi Mission phải có code + nhận xét
+### 7. Mỗi Mission phải có code + nhận xét
 
 Không chỉ chạy code hoặc vẽ biểu đồ. Các câu hỏi Markdown là một phần của bài nộp.
 
